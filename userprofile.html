@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-header .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #007BFF;
+            object-fit: cover;
+        }
+        .profile-header .profile-info {
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+        .profile-header h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .profile-header p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .social-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .social-stats .stat {
+            text-align: center;
+        }
+        .social-stats .stat span {
+            display: block;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .post-container {
+            margin-top: 30px;
+        }
+        .post {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .post .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .post .post-header .post-author {
+            display: flex;
+            align-items: center;
+        }
+        .post .post-header .post-author img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .post .post-header .post-author h3 {
+            margin: 0;
+        }
+        .post .post-body {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+        .post .post-footer {
+            margin-top: 15px;
+            text-align: right;
+        }
+        .post .post-footer button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .post .post-footer button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-header .profile-info {
+                margin-left: 0;
+                text-align: center;
+            }
+            .social-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            .social-stats .stat {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <img src="https://via.placeholder.com/150" alt="Profile Image" class="profile-image">
+            <div class="profile-info">
+                <h2>John Doe</h2>
+                <p>@john_doe</p>
+                <p>Web Developer | Tech Enthusiast | Traveler</p>
+            </div>
+        </div>
+
+     
+     
+        <!-- User Posts -->
+        <div class="post-container">
+            <!-- Post 1 -->
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-author">
+                        <img src="https://via.placeholder.com/40" alt="Author Image">
+                        <h3>John Doe</h3>
+                    </div>
+                    <p>2 hours ago</p>
+                </div>
+                <div class="post-body">
+                    <p>Just finished a new project. Check it out! #webdevelopment #tech</p>
+                </div>
+                <div class="post-footer">
+                    <button>Like</button>
+                    <button>Comment</button>
+                </div>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-author">
+                        <img src="https://via.placeholder.com/40" alt="Author Image">
+                        <h3>John Doe</h3>
+                    </div>
+                    <p>5 hours ago</p>
+                </div>
+                <div class="post-body">
+                    <p>Had an amazing trip to the mountains! #travel #adventure</p>
+                </div>
+                <div class="post-footer">
+                    <button>Like</button>
+                    <button>Comment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
