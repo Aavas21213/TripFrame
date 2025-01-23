@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .hotel-container {
+            display: flex;
+            width: 100%;
+            margin-top: 50px;
+        }
+        .hotel-image {
+            width: 50%;
+            height: 400px;
+            overflow: hidden;
+        }
+        .hotel-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .hotel-details {
+            width: 50%;
+            padding: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .hotel-details h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        .hotel-details p {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+        .hotel-details .section-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .hotel-details .facilities {
+            list-style: none;
+            padding-left: 0;
+        }
+        .hotel-details .facilities li {
+            margin-bottom: 8px;
+        }
+        .book-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        .book-button:hover {
+            background-color: #e64a19;
+        }
+        .room-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            justify-content: space-between;
+            padding: 0 10px; /* Added padding for left and right gaps */
+        }
+        .room-gallery .room {
+            width: 30%; /* Decreased width for smaller photos */
+            margin-bottom: 10px; /* Adjusted margin for consistent spacing */
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .room-gallery .room img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+        .room-gallery .room img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="hotel-container">
+        <div class="hotel-image">
+            <img src="Hotel_pic.jpg" alt="Hotel Image"> <!-- Replace with your hotel image -->
+        </div>
+        <div class="hotel-details">
+            <h1>Grand Hotel</h1>
+            <p><strong>Location:</strong> Paris, France</p>
+            <p><strong>Description:</strong> A luxurious hotel offering world-class services and comfort in the heart of Paris. Enjoy stunning views, elegant rooms, and top-notch amenities for an unforgettable stay.</p>
+            <p><strong>Contact:</strong> +33 1 23 45 67 89</p>
+            
+            <div class="section-title">Facilities</div>
+            <ul class="facilities">
+                <li>Free Wi-Fi</li>
+                <li>24/7 Room Service</li>
+                <li>Swimming Pool</li>
+                <li>Gym</li>
+                <li>Restaurant & Bar</li>
+                <li>Conference Room</li>
+            </ul>
+            <button class="book-button" type="submit">Book Now</button>
+        </div>
+    </div>
+    <h2>Available Rooms</h2>
+    <div class="room-gallery">
+        <div class="room">
+            <img src="room1.jpg" alt="Room 1">
+            <p><strong>Deluxe Suite</strong></p>
+            <p>$300/night</p>
+        </div>
+        <div class="room">
+            <img src="room2.jpg" alt="Room 2">
+            <p><strong>Standard Room</strong></p>
+            <p>$150/night</p>
+        </div>
+        <div class="room">
+            <img src="room3.jpg" alt="Room 3">
+            <p><strong>Luxury Suite</strong></p>
+            <p>$500/night</p>
+        </div>
+        <div class="room">
+            <img src="room2.jpg" alt="Room 4">
+            <p><strong>Executive Room</strong></p>
+            <p>$400/night</p>
+        </div>
+        <div class="room">
+            <img src="room1.jpg" alt="Room 5">
+            <p><strong>Family Room</strong></p>
+            <p>$250/night</p>
+        </div>
+        <div class="room">
+            <img src="room2.jpg" alt="Room 6">
+            <p><strong>Presidential Suite</strong></p>
+            <p>$800/night</p>
+        </div>
+    </div>
+</body>
+</html>

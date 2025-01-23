@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery for hotel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .gallery-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(70%);
+        }
+
+        .gallery-hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding-bottom: 10px;
+        }
+
+        .gallery-item:hover .gallery-hover {
+            opacity: 1;
+        }
+
+        /* Adjusted hotel name position */
+        .hotel-name {
+            position: absolute;
+            top: 150px; /* Adjust this value for better positioning */
+            left: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Styling for like and views */
+        .like, .views {
+            position: absolute;
+            bottom: 10px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .like {
+            left: 10px;
+        }
+
+        .views {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <h1 class="gallery-title">Gallery</h1>
+        <div class="gallery">
+            <!-- Item 1 -->
+            <div class="gallery-item">
+                <img src="room1.jpg" alt="Image post">
+                <div class="gallery-hover">
+                    <div class="hotel-name">Grand Hotel</div>
+                    <div class="like">Like 3</div>
+                    <div class="views">23 Views</div>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="gallery-item">
+                <img src="room2.jpg" alt="Image post">
+                <div class="gallery-hover">
+                    <div class="hotel-name">Beach Resort</div>
+                    <div class="like">Like</div>
+                    <div class="views">46 Views</div>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="gallery-item">
+                <img src="room3.jpg" alt="Image post">
+                <div class="gallery-hover">
+                    <div class="hotel-name">Mountain Retreat</div>
+                    <div class="like">Like 3</div>
+                    <div class="views">89 Views</div>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="gallery-item">
+                <img src="room4.jpg" alt="Image post">
+                <div class="gallery-hover">
+                    <div class="hotel-name">City Lights Hotel</div>
+                    <div class="like">Like 3</div>
+                    <div class="views">32 Views</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

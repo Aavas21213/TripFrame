@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .home-image {
+            width: 100%;
+            height: 300px;
+            background-image: url('cat4.jpg');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .home-image .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .home-image .content {
+            color: #fff;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            padding-top: 100px;
+        }
+        .home-image .content h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        .home-image .content p {
+            margin: 10px 0 0;
+        }
+        .profile-container {
+            display: flex;
+            justify-content: center;
+            width: 80%;
+            margin: 200px auto 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .profile-sidebar {
+            width: 30%;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            text-align: center;
+        }
+        .profile-sidebar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .profile-sidebar h2 {
+            margin: 0 0 10px;
+        }
+        .profile-sidebar p {
+            margin: 5px 0;
+        }
+        .profile-sidebar .social-icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .profile-sidebar .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+        .profile-content {
+            width: 70%;
+            padding: 20px;
+        }
+        .settings-privacy {
+            background: #f9f9f9;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 90%;
+            max-width: 700px;
+        }
+        .settings-privacy p {
+            text-align: left;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .toggle-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .toggle-label input {
+            cursor: pointer;
+        }
+        .settings-privacy button {
+            padding: 15px 30px;
+            background: #e53e3e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .settings-privacy button:hover {
+            background: #c53030;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 34px;
+            height: 20px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 50px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 12px;
+            width: 12px;
+            border-radius: 50px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+        }
+        input:checked + .slider {
+            background-color: #4CAF50;
+        }
+        input:checked + .slider:before {
+            transform: translateX(14px);
+        }
+        .delete-account-container {
+            display: none;
+            margin-top: 20px;
+        }
+        .delete-account-container input {
+            padding: 10px;
+            width: 95%; /* Updated to make the textbox fill the width */
+            margin-bottom: 10px;
+        }
+        .delete-account-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px; /* Added gap to ensure buttons don't touch each other */
+        }
+        .delete-account-buttons button {
+            padding: 8px 20px; /* Reduced padding for smaller buttons */
+            border-radius: 5px;
+            cursor: pointer;
+            width: 45%; /* Ensures buttons are equally sized */
+        }
+        .delete-account-buttons .confirm-btn {
+            background: #4CAF50;
+        }
+        .delete-account-buttons .confirm-btn:hover {
+            background: #45a049;
+        }
+        .delete-account-buttons .cancel-btn {
+            background: #f44336;
+        }
+        .delete-account-buttons .cancel-btn:hover {
+            background: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="home-image">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Welcome to My Profile</h1>
+            <p>Explore my photography and adventures</p>
+        </div>
+    </div>
+    <div class="profile-container">
+        <div class="profile-sidebar">
+            <img src="Cat03.jpg" alt="Profile Picture">
+            <h2>Sanjeev Kumar Yadav</h2>
+            <p>Followers: 0</p>
+            <p>Following: 0</p>
+            <button>Follow</button>
+            <button>Email</button>
+            <div class="about-me">
+                <h3>About Me</h3>
+                <p>I am a passionate photographer, nature lover, and traveler.</p>
+            </div>
+            <div class="stats">
+                <div>
+                    <p>1</p>
+                    <p>Downloads</p>
+                </div>
+                <div>
+                    <p>0</p>
+                    <p>Collections</p>
+                </div>
+                <div>
+                    <p>14</p>
+                    <p>Uploads</p>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="#"><img src="icons8-x-50.png" alt="Twitter"></a>
+                <a href="#"><img src="facebook_5968764.png" alt="Facebook"></a>
+                <a href="#"><img src="instagram_2504918.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="profile-content">
+            <div class="settings-privacy">
+                <h3>Settings and Privacy</h3>
+                <p>Change Privacy</p>
+                <div class="toggle-label">
+                    <span>Private Account</span>
+                    <label class="switch">
+                        <input type="checkbox" id="privateAccountToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="toggle-label">
+                    <span>Private Email</span>
+                    <label class="switch">
+                        <input type="checkbox" id="privateEmail">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="toggle-label">
+                    <span>Private Instagram</span>
+                    <label class="switch">
+                        <input type="checkbox" id="privateInstagram">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="toggle-label">
+                    <span>Private Facebook</span>
+                    <label class="switch">
+                        <input type="checkbox" id="privateFacebook">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="toggle-label">
+                    <span>Private X</span>
+                    <label class="switch">
+                        <input type="checkbox" id="privateX">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="toggle-label">
+                    <span>Private Phone Number</span>
+                    <label class="switch">
+                        <input type="checkbox" id="privatePhoneNumber">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <button onclick="showDeleteAccountOptions()">Delete Account</button>
+
+                <div class="delete-account-container" id="deleteAccountContainer">
+                    <input type="password" id="deletePassword" placeholder="Enter password to confirm">
+                    <div class="delete-account-buttons">
+                        <button class="cancel-btn" onclick="cancelDelete()">Cancel</button>
+                        <button class="confirm-btn" onclick="confirmDelete()">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showDeleteAccountOptions() {
+            document.getElementById("deleteAccountContainer").style.display = "block";
+        }
+
+        function cancelDelete() {
+            document.getElementById("deleteAccountContainer").style.display = "none";
+        }
+
+        function confirmDelete() {
+            let password = document.getElementById("deletePassword").value;
+            if (password) {
+                alert("Account deletion confirmed.");
+                // Here you can add your delete account logic.
+            } else {
+                alert("Please enter your password.");
+            }
+        }
+    </script>
+</body>
+</html>

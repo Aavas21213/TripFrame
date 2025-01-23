@@ -3,132 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+    <title>Gallery with Hover Effect</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             background-color: #f4f4f4;
-            padding: 20px;
         }
-        h1 {
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .gallery-title {
+            font-size: 2rem;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             color: #333;
         }
+
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
+
         .gallery-item {
             position: relative;
             overflow: hidden;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
         }
+
         .gallery-item img {
             width: 100%;
-            height: auto;
-            transition: transform 0.3s ease;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease, filter 0.3s ease;
         }
+
         .gallery-item:hover img {
             transform: scale(1.1);
+            filter: brightness(70%);
         }
-        .gallery-item .caption {
+
+        .gallery-hover {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            font-size: 16px;
-        }
-        /* Lightbox Styles */
-        .lightbox {
-            display: none;
-            position: fixed;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-hover {
+            opacity: 1;
+        }
+
+        .user-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 10px;
+            border: 2px solid white;
+        }
+
+        .user-photo img {
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
+            object-fit: cover;
         }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 80%;
-            border-radius: 10px;
+
+        .user-name {
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
         }
-        .lightbox .close {
+
+        /* New styling for like and views */
+        .like, .views {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            bottom: 10px;
             color: white;
-            font-size: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .like {
+            left: 10px;
+        }
+
+        .views {
+            right: 10px;
+        }
+
+        /* New styling for the smaller View More Button */
+        .view-more {
+            display: inline-block;
+            padding: 8px 15px;
+            text-align: center;
+            background-color: #28a745;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 20px;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .view-more:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .view-more:focus {
+            outline: none;
+        }
+
+        /* Right-aligned button */
+        .view-more-container {
+            text-align: right;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Gallery</h1>
-    <div class="gallery">
-        <div class="gallery-item">
-            <img src="https://via.placeholder.com/400" alt="Image 1" data-full="https://via.placeholder.com/800">
-            <div class="caption">Image 1</div>
+    <div class="gallery-container">
+        <h1 class="gallery-title">Gallery</h1>
+        <div class="gallery">
+            <!-- Item 1 -->
+            <div class="gallery-item">
+                <img src="room1.jpg" alt="Image post">
+                <div class="gallery-hover">
+                    <div class="user-photo">
+                        <img src="cat2.jpg" alt="User Photo">
+                    </div>
+                    <div class="user-name">John Doe</div>
+                    <div class="like">Like 3</div>
+                    <div class="views">23 Views</div>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="gallery-item">
+                <img src="room2.jpg" alt="Image post">
+                <div class="gallery-hover">
+                    <div class="user-photo">
+                        <img src="Cat03.jpg" alt="User Photo">
+                    </div>
+                    <div class="user-name">Jane Smith</div>
+                    <div class="like">Like</div>
+                    <div class="views">46 Views</div>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="gallery-item">
+                <img src="room3.jpg" alt="Image post">
+                <div class="gallery-hover">
+                    <div class="user-photo">
+                        <img src="Cat03.jpg" alt="User Photo">
+                    </div>
+                    <div class="user-name">Emily Brown</div>
+                    <div class="like">Like 3</div>
+                    <div class="views">89 Views</div>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="gallery-item">
+                <img src="room4.jpg" alt="Image post">
+                <div class="gallery-hover">
+                    <div class="user-photo">
+                        <img src="user4.jpg" alt="User Photo">
+                    </div>
+                    <div class="user-name">Michael Green</div>
+                    <div class="like">Like 3</div>
+                    <div class="views">32 Views</div>
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="gallery-item">
+                <img src="room5.jpg" alt="Image post">
+                <div class="gallery-hover">
+                    <div class="user-photo">
+                        <img src="user5.jpg" alt="User Photo">
+                    </div>
+                    <div class="user-name">Alex White</div>
+                    <div class="like">Like 5</div>
+                    <div class="views">120 Views</div>
+                </div>
+            </div>
+            <!-- Item 6 -->
+            <div class="gallery-item">
+                <img src="room6.jpg" alt="Image post">
+                <div class="gallery-hover">
+                    <div class="user-photo">
+                        <img src="user6.jpg" alt="User Photo">
+                    </div>
+                    <div class="user-name">Sarah Blue</div>
+                    <div class="like">Like 7</div>
+                    <div class="views">150 Views</div>
+                </div>
+            </div>
+            <!-- Item 7 -->
+            <div class="gallery-item">
+                <img src="room7.jpg" alt="Image post">
+                <div class="gallery-hover">
+                    <div class="user-photo">
+                        <img src="user7.jpg" alt="User Photo">
+                    </div>
+                    <div class="user-name">David Black</div>
+                    <div class="like">Like 10</div>
+                    <div class="views">200 Views</div>
+                </div>
+            </div>
+            <!-- Item 8 -->
+            <div class="gallery-item">
+                <img src="room8.jpg" alt="Image post">
+                <div class="gallery-hover">
+                    <div class="user-photo">
+                        <img src="user8.jpg" alt="User Photo">
+                    </div>
+                    <div class="user-name">Olivia Brown</div>
+                    <div class="like">Like 8</div>
+                    <div class="views">250 Views</div>
+                </div>
+            </div>
         </div>
-        <div class="gallery-item">
-            <img src="https://via.placeholder.com/400" alt="Image 2" data-full="https://via.placeholder.com/800">
-            <div class="caption">Image 2</div>
-        </div>
-        <div class="gallery-item">
-            <img src="https://via.placeholder.com/400" alt="Image 3" data-full="https://via.placeholder.com/800">
-            <div class="caption">Image 3</div>
-        </div>
-        <div class="gallery-item">
-            <img src="https://via.placeholder.com/400" alt="Image 4" data-full="https://via.placeholder.com/800">
-            <div class="caption">Image 4</div>
+        <!-- Right-aligned View More Button -->
+        <div class="view-more-container">
+            <button class="view-more">View More</button>
         </div>
     </div>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <span class="close" id="closeLightbox">&times;</span>
-        <img src="" alt="Full View" id="lightboxImage">
-    </div>
-
-    <script>
-        // JavaScript for Lightbox functionality
-        const galleryItems = document.querySelectorAll('.gallery-item img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightboxImage');
-        const closeLightbox = document.getElementById('closeLightbox');
-
-        galleryItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const fullImageSrc = item.getAttribute('data-full');
-                lightboxImage.src = fullImageSrc;
-                lightbox.style.display = 'flex';
-            });
-        });
-
-        closeLightbox.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-        });
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target !== lightboxImage) {
-                lightbox.style.display = 'none';
-            }
-        });
-    </script>
 </body>
 </html>

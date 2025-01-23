@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .home-image {
+            width: 100%;
+            height: 300px;
+            background-image: url('cat4.jpg');
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .home-image .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .home-image .content {
+            color: #fff;
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            padding-top: 100px;
+        }
+        .home-image .content h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        .home-image .content p {
+            margin: 10px 0 0;
+        }
+        .profile-container {
+            display: flex;
+            width: 80%;
+            margin: 100px auto 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .profile-sidebar {
+            width: 30%;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+            text-align: center;
+        }
+        .profile-sidebar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .profile-sidebar h2 {
+            margin: 0 0 10px;
+        }
+        .profile-sidebar p {
+            margin: 5px 0;
+        }
+        .profile-sidebar .social-icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .profile-sidebar .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+        .profile-sidebar button {
+            padding: 10px 20px;
+            background-color: #5a67d8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .profile-sidebar button:hover {
+            background-color: #434190;
+        }
+        .profile-content {
+            width: 70%;
+            padding: 20px;
+        }
+        .container {
+            margin-top: 10px; /* Adjusted margin-top to move the section upwards */
+            width: 100%;
+            background: #ffffff;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+        .profile-pic-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .profile-pic {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            overflow: hidden;
+        }
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid transparent;
+        }
+        .upload-btn {
+            padding: 0.5rem 2rem;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-align: center;
+            width: fit-content;
+        }
+        .upload-btn:hover {
+            background-color: #0056b3;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-row {
+            width: 100%;
+            display: flex;
+            gap: .5rem;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+        input[type="text"], input[type="email"], input[type="password"], textarea {
+            width: 90%; /* Reduced width to ensure text boxes don’t touch the edges */
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .social-link img {
+            width: 24px;
+            height: 24px;
+        }
+        button {
+            width: 90%;
+            padding: 0.75rem;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+            button[type="submit"] {
+    width: 50%; /* Reduced button width */
+    padding: 0.5rem;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: block;
+    margin: 1rem auto; /* Center the button */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+        }
+
+    </style>
+</head>
+<body>
+    <div class="home-image">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Welcome to My Profile</h1>
+            <p>Explore my photography and adventures</p>
+        </div>
+    </div>
+    <div class="profile-container">
+        <div class="profile-sidebar">
+            <img src="Cat03.jpg" alt="Profile Picture">
+            <h2>Sanjeev Kumar Yadav</h2>
+            <p>Followers: 0</p>
+            <p>Following: 0</p>
+            <button>Follow</button>
+            <button>Email</button>
+            <div class="about-me">
+                <h3>About Me</h3>
+                <p>I am a passionate photographer, nature lover, and traveler.</p>
+            </div>
+            <div class="stats">
+                <div>
+                    <p>1</p>
+                    <p>Downloads</p>
+                </div>
+                <div>
+                    <p>0</p>
+                    <p>Collections</p>
+                </div>
+                <div>
+                    <p>14</p>
+                    <p>Uploads</p>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="#"><img src="icons8-x-50.png" alt="Twitter"></a>
+                <a href="#"><img src="facebook_5968764.png" alt="Facebook"></a>
+                <a href="#"><img src="instagram_2504918.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="profile-content">
+            <div class="container">
+                <h2>Edit Profile</h2>
+                <div class="profile-pic-container">
+                    <div class="profile-pic">
+                        <img src="" alt="" id="profile-pic">
+                        <input type="file" id="profile-pic-input" style="display:none;" onchange="updateProfilePicture()">
+                    </div>
+                    <button class="upload-btn" onclick="document.getElementById('profile-pic-input').click()">Change Profile Picture</button>
+                </div>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" placeholder="Enter First Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" placeholder="Enter Last Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Enter Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" placeholder="Describe yourself"></textarea>
+                    </div>
+                    <div class="form-group social-links">
+                        <div class="social-link">
+                            <img src="facebook_5968764.png" alt="Facebook">
+                            <input type="text" id="facebook" placeholder="Facebook URL">
+                        </div>
+                        <div class="social-link">
+                            <img src="instagram_2504918.png" alt="Instagram">
+                            <input type="text" id="instagram" placeholder="Instagram URL">
+                        </div>
+                        <div class="social-link">
+                            <img src="icons8-x-50.png" alt="Twitter">
+                            <input type="text" id="x" placeholder="Twitter URL">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter Password">
+                    </div>
+                    <button type="submit">Update Profile</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function updateProfilePicture() {
+            const input = document.getElementById('profile-pic-input');
+            const img = document.getElementById('profile-pic');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel View</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .form-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-section .left {
+            flex: 1;
+            padding: 10px;
+            background: #f4f4f4;
+            border-radius: 5px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-section .left div {
+            margin-bottom: 15px;
+        }
+
+        .form-section .left p {
+            margin: 0;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        h3 {
+            font-weight: bold;
+        }
+
+        .hoteldetail {
+            display: flex;
+            gap: 2px;
+        }
+
+        .status-container {
+            display: flex;
+            gap: 10px; /* Adjust gap for spacing between status elements */
+        }
+
+        .booked {
+            color: green !important;
+            font-weight: bold;
+        }
+
+        .pending {
+            color: red !important;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <!-- Top Section -->
+        <div class="form-section">
+            <!-- Left Section -->
+            <div class="left">
+                <h3>Hotel Details</h3> <!-- Topic with bold style -->
+                <div class="hoteldetail">
+                    <p>Name:</p>
+                    <p>Grand Hotel</p>
+                </div>
+                <div class="hoteldetail">
+                    <p>Location:</p>
+                    <p>Kathmandu</p>
+                </div>
+                <div class="hoteldetail">
+                    <p>Room No:</p>
+                    <p>120</p>
+                </div>
+                <div class="hoteldetail">
+                    <p>Check in Date:</p>
+                    <p>2025-02-01</p>
+                </div>
+                <div class="hoteldetail">
+                    <p>Check out Date:</p>
+                    <p>2025-02-04</p>
+                </div>
+                <div class="hoteldetail">
+                    <p>No. of Guests:</p>
+                    <p>5</p>
+                </div>
+                <div class="hoteldetail">
+                    <p>Booking Status:</p>
+                    <div class="status-container">
+                        <p class="booked">Booked</p>
+                        <p class="pending">Pending</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery for Activity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .gallery-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: brightness(70%);
+        }
+
+        .gallery-hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding-bottom: 10px;
+        }
+
+        .gallery-item:hover .gallery-hover {
+            opacity: 1;
+        }
+
+        .activity-name {
+            position: absolute;
+            top: 150px;
+            left: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .duration {
+            position: absolute;
+            bottom: 10px;
+            color: white;
+            font-size: 0.8rem; /* Reduced font size */
+            font-weight: normal; /* Changed to normal weight */
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <h1 class="gallery-title">Gallery</h1>
+        <div class="gallery">
+            <!-- Item 1 -->
+            <div class="gallery-item">
+                <img src="hike.jpg" alt="Activity image">
+                <div class="gallery-hover">
+                    <div class="activity-name">Hiking Adventure</div>
+                    <div class="duration">Duration 09:00-15:00</div>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="gallery-item">
+                <img src="beachvolly.jpg" alt="Activity image">
+                <div class="gallery-hover">
+                    <div class="activity-name">Beach Volleyball</div>
+                    <div class="duration">Duration 09:00-15:00</div>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="gallery-item">
+                <img src="mountainclimb.jpg" alt="Activity image">
+                <div class="gallery-hover">
+                    <div class="activity-name">Mountain Climbing</div>
+                    <div class="duration">Duration 09:00-15:00</div>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="gallery-item">
+                <img src="room4.jpg" alt="Activity image">
+                <div class="gallery-hover">
+                    <div class="activity-name">City Sightseeing</div>
+                    <div class="duration">Duration 09:00-15:00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
