@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Page</title>
+    <title>Post edit and delete</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -85,68 +85,74 @@
             width: 70%;
             padding: 20px;
         }
-        .profile-content h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+        .post-settings {
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
         }
-        .profile-content .photo-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .profile-content .photo-grid .photo-item {
-            position: relative;
-            width: calc(50% - 10px);
-            overflow: hidden;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-        .profile-content .photo-grid img {
-            width: 100%;
-            aspect-ratio: 4 / 3; /* Rectangular aspect ratio */
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .profile-content .photo-grid .photo-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 10px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .profile-content .photo-grid .photo-overlay h3 {
-            margin: 0;
-            font-size: 1.2rem;
+        .post-settings h3 {
+            margin-top: 0;
             text-align: center;
         }
-        .profile-content .photo-grid .photo-overlay .info {
+        .post-settings .settings-icon {
+            display: block;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        .post-settings .settings-icon img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        .post-settings .dropdown {
+            display: none;
+            position: absolute;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            right: 20px;
+            top: 0;
+            min-width: 150px;
+            padding: 10px;
+        }
+        .post-settings .dropdown a {
+            display: block;
+            text-decoration: none;
+            color: black;
+            padding: 8px;
+        }
+        .post-settings .dropdown a:hover {
+            background-color: #ddd;
+        }
+        .post-settings .photo-description {
+            margin: 20px 0;
+        }
+        .post-settings .large-image img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* Style for Like and Views */
+        .photo-stats {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .stats-container {
             display: flex;
-            justify-content: space-around; /* Smaller gap */
-            align-items: center;
-            margin-bottom: 20px;
+            justify-content: space-between;
+            width: 100%;
         }
-        .profile-content .photo-grid .photo-overlay p {
-            margin: 0;
-            font-size: 0.9rem;
+
+        .stats-container .likes {
+            text-align: left;
         }
-        .profile-content .photo-grid .photo-item:hover img {
-            transform: scale(1.1);
-        }
-        .profile-content .photo-grid .photo-item:hover .photo-overlay {
-            opacity: 1;
-        }
-        .profile-content .my-posts-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
+
+        .stats-container .views {
+            text-align: right;
         }
     </style>
 </head>
@@ -191,55 +197,55 @@
             </div>
         </div>
         <div class="profile-content">
-            <div class="my-posts-title">
-                <h2>My Posts</h2> <!-- Title added here -->
-            </div>
-            <div class="photo-grid">
-                <a href="file:///C:/Users/ACER/OneDrive/Desktop/New%20folder%20(26)/posteditdelet.html">
-                    <div class="photo-item">
-                        <img src="cat2.jpg" alt="Photo 1">
-                        <div class="photo-overlay">
-                            <h3>Nature View</h3>
-                            <div class="info">
-                                <p>Views: 120</p>
-                                <p>Likes: 30</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <div class="photo-item">
-                    <img src="https://via.placeholder.com/400x300" alt="Photo 2">
-                    <div class="photo-overlay">
-                        <h3>Nature View</h3>
-                        <div class="info">
-                            <p>Views: 250</p>
-                            <p>Likes: 45</p>
-                        </div>
-                    </div>
+            <div class="post-settings">
+                <h3>Post Settings</h3>
+                <div class="settings-icon">
+                    <img src="settings.png" alt="Settings" onclick="toggleDropdown(event)">
                 </div>
-                <div class="photo-item">
-                    <img src="https://via.placeholder.com/400x300" alt="Photo 3">
-                    <div class="photo-overlay">
-                        <h3>Mountain</h3>
-                        <div class="info">
-                            <p>Views: 300</p>
-                            <p>Likes: 75</p>
-                        </div>
-                    </div>
+                <div class="dropdown">
+                    <a href="#">Edit Post</a>
+                    <a href="#">Delete Post</a>
                 </div>
-                <div class="photo-item">
-                    <img src="https://via.placeholder.com/400x300" alt="Photo 4">
-                    <div class="photo-overlay">
-                        <h3>Cityscape</h3>
-                        <div class="info">
-                            <p>Views: 200</p>
-                            <p>Likes: 50</p>
-                        </div>
+                <div class="photo-description">
+                    <p>Small photo description about this post</p>
+                </div>
+                <div class="large-image">
+                    <img src="cat2.jpg" alt="Large Display Image">
+                </div>
+                <!-- Add Like and Views below the image -->
+                <div class="photo-stats">
+                    <div class="stats-container">
+                        <p class="likes">Likes: 25</p>
+                        <p class="views">Views: 150</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleDropdown(event) {
+            const dropdown = document.querySelector('.post-settings .dropdown');
+            const settingsIcon = event.target;
+
+            // Position dropdown below the settings button
+            const rect = settingsIcon.getBoundingClientRect();
+            dropdown.style.top = `${rect.bottom + window.scrollY}px`;
+            dropdown.style.left = `${rect.left + window.scrollX}px`;
+            
+            // Toggle dropdown visibility
+            dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+        }
+
+        // Close dropdown when clicking outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.settings-icon img')) {
+                const dropdown = document.querySelector('.post-settings .dropdown');
+                if (dropdown && dropdown.style.display === 'block') {
+                    dropdown.style.display = 'none';
+                }
+            }
+        };
+    </script>
 </body>
 </html>

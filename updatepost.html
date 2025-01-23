@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Page</title>
+    <title>Update post</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -85,68 +85,70 @@
             width: 70%;
             padding: 20px;
         }
-        .profile-content h2 {
-            font-size: 1.5rem;
+        .create-post {
+            background: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             margin-bottom: 20px;
-        }
-        .profile-content .photo-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .profile-content .photo-grid .photo-item {
-            position: relative;
-            width: calc(50% - 10px);
-            overflow: hidden;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-        .profile-content .photo-grid img {
-            width: 100%;
-            aspect-ratio: 4 / 3; /* Rectangular aspect ratio */
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .profile-content .photo-grid .photo-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 10px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .profile-content .photo-grid .photo-overlay h3 {
-            margin: 0;
-            font-size: 1.2rem;
             text-align: center;
         }
-        .profile-content .photo-grid .photo-overlay .info {
-            display: flex;
-            justify-content: space-around; /* Smaller gap */
-            align-items: center;
-            margin-bottom: 20px;
+        .create-post h3 {
+            margin-top: 0;
         }
-        .profile-content .photo-grid .photo-overlay p {
-            margin: 0;
-            font-size: 0.9rem;
+        .create-post textarea {
+            width: calc(100% - 20px);
+            height: 80px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: vertical;
+            margin-bottom: 10px;
         }
-        .profile-content .photo-grid .photo-item:hover img {
-            transform: scale(1.1);
+        .create-post input[type="file"] {
+            margin-bottom: 10px;
+            display: block;
         }
-        .profile-content .photo-grid .photo-item:hover .photo-overlay {
-            opacity: 1;
+        .create-post select {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
         }
-        .profile-content .my-posts-title {
-            font-size: 1.5rem;
+        .create-post .privacy-options {
+            margin-bottom: 10px;
+        }
+        .create-post .privacy-options label {
+            margin-right: 15px;
+        }
+        .create-post .privacy-options h4 {
+            margin: 0 0 5px;
             font-weight: bold;
-            margin-bottom: 20px;
+        }
+        .create-post .large-image {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .create-post .large-image img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .create-post button {
+            padding: 10px 20px;
+            background: #5a67d8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 20px;
+            float: right;
+            clear: both;  /* Ensures the button appears below other elements */
+        }
+        .create-post button:hover {
+            background: #434190;
         }
     </style>
 </head>
@@ -191,53 +193,24 @@
             </div>
         </div>
         <div class="profile-content">
-            <div class="my-posts-title">
-                <h2>My Posts</h2> <!-- Title added here -->
-            </div>
-            <div class="photo-grid">
-                <a href="file:///C:/Users/ACER/OneDrive/Desktop/New%20folder%20(26)/posteditdelet.html">
-                    <div class="photo-item">
-                        <img src="cat2.jpg" alt="Photo 1">
-                        <div class="photo-overlay">
-                            <h3>Nature View</h3>
-                            <div class="info">
-                                <p>Views: 120</p>
-                                <p>Likes: 30</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <div class="photo-item">
-                    <img src="https://via.placeholder.com/400x300" alt="Photo 2">
-                    <div class="photo-overlay">
-                        <h3>Nature View</h3>
-                        <div class="info">
-                            <p>Views: 250</p>
-                            <p>Likes: 45</p>
-                        </div>
-                    </div>
+            <div class="create-post">
+                <h3>Edit Post</h3>
+                <textarea placeholder="Write something about your post..."></textarea>
+                <input type="file" accept="image/*">
+                <select>
+                    <option value="kathmandu">Kathmandu</option>
+                    <option value="pokhara">Pokhara</option>
+                </select>
+                <div class="privacy-options">
+                    <h4>Privacy</h4>
+                    <label><input type="radio" name="privacy" value="private"> Private</label>
+                    <label><input type="radio" name="privacy" value="followers"> Followers</label>
+                    <label><input type="radio" name="privacy" value="public"> Public</label>
                 </div>
-                <div class="photo-item">
-                    <img src="https://via.placeholder.com/400x300" alt="Photo 3">
-                    <div class="photo-overlay">
-                        <h3>Mountain</h3>
-                        <div class="info">
-                            <p>Views: 300</p>
-                            <p>Likes: 75</p>
-                        </div>
-                    </div>
+                <div class="large-image">
+                    <img src="cat2.jpg" alt="Large Display Image">
                 </div>
-                <div class="photo-item">
-                    <img src="https://via.placeholder.com/400x300" alt="Photo 4">
-                    <div class="photo-overlay">
-                        <h3>Cityscape</h3>
-                        <div class="info">
-                            <p>Views: 200</p>
-                            <p>Likes: 50</p>
-                        </div>
-                    </div>
-                </div>
+                <button>Update Post</button>
             </div>
         </div>
     </div>

@@ -88,32 +88,35 @@
         }
         .settings-privacy {
             background: #f9f9f9;
-            padding: 30px;
+            padding: 15px;
             border: 1px solid #ddd;
             border-radius: 8px;
             margin-bottom: 20px;
             text-align: center;
-            width: 90%;
-            max-width: 700px;
+            width: 100%;
+            max-width: 500px; /* Increased max-width */
+        }
+        .settings-privacy h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
         }
         .settings-privacy p {
             text-align: left;
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin-bottom: 10px;
             font-weight: bold;
-            margin-bottom: 20px;
         }
-        .toggle-label {
+        .settings-privacy .toggle-label {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
         }
-        .toggle-label input {
+        .settings-privacy .toggle-label input {
             cursor: pointer;
         }
         .settings-privacy button {
-            padding: 15px 30px;
+            padding: 15px 30px; /* Increased padding */
             background: #e53e3e;
             color: white;
             border: none;
@@ -121,7 +124,7 @@
             cursor: pointer;
             display: inline-block;
             margin-top: 20px;
-            width: 100%;
+            width: 100%; /* Set width to 100% to make the button longer */
         }
         .settings-privacy button:hover {
             background: #c53030;
@@ -165,38 +168,18 @@
         input:checked + .slider:before {
             transform: translateX(14px);
         }
-        .delete-account-container {
-            display: none;
-            margin-top: 20px;
-        }
-        .delete-account-container input {
-            padding: 10px;
-            width: 95%; /* Updated to make the textbox fill the width */
-            margin-bottom: 10px;
-        }
-        .delete-account-buttons {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px; /* Added gap to ensure buttons don't touch each other */
-        }
-        .delete-account-buttons button {
-            padding: 8px 20px; /* Reduced padding for smaller buttons */
-            border-radius: 5px;
-            cursor: pointer;
-            width: 45%; /* Ensures buttons are equally sized */
-        }
-        .delete-account-buttons .confirm-btn {
-            background: #4CAF50;
-        }
-        .delete-account-buttons .confirm-btn:hover {
-            background: #45a049;
-        }
-        .delete-account-buttons .cancel-btn {
-            background: #f44336;
-        }
-        .delete-account-buttons .cancel-btn:hover {
-            background: #e53935;
-        }
+
+        .settings-privacy {
+    background: #f9f9f9;
+    padding: 30px; /* Increased padding for a larger box */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 90%;
+    max-width: 700px; /* Increased max-width for a larger box */
+}
+
     </style>
 </head>
 <body>
@@ -242,7 +225,7 @@
         <div class="profile-content">
             <div class="settings-privacy">
                 <h3>Settings and Privacy</h3>
-                <p>Change Privacy</p>
+                <p>Privacy</p>
                 <div class="toggle-label">
                     <span>Private Account</span>
                     <label class="switch">
@@ -250,72 +233,9 @@
                         <span class="slider"></span>
                     </label>
                 </div>
-                <div class="toggle-label">
-                    <span>Private Email</span>
-                    <label class="switch">
-                        <input type="checkbox" id="privateEmail">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-                <div class="toggle-label">
-                    <span>Private Instagram</span>
-                    <label class="switch">
-                        <input type="checkbox" id="privateInstagram">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-                <div class="toggle-label">
-                    <span>Private Facebook</span>
-                    <label class="switch">
-                        <input type="checkbox" id="privateFacebook">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-                <div class="toggle-label">
-                    <span>Private X</span>
-                    <label class="switch">
-                        <input type="checkbox" id="privateX">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-                <div class="toggle-label">
-                    <span>Private Phone Number</span>
-                    <label class="switch">
-                        <input type="checkbox" id="privatePhoneNumber">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-                <button onclick="showDeleteAccountOptions()">Delete Account</button>
-
-                <div class="delete-account-container" id="deleteAccountContainer">
-                    <input type="password" id="deletePassword" placeholder="Enter password to confirm">
-                    <div class="delete-account-buttons">
-                        <button class="cancel-btn" onclick="cancelDelete()">Cancel</button>
-                        <button class="confirm-btn" onclick="confirmDelete()">Confirm</button>
-                    </div>
-                </div>
+                <button>Delete Account</button>
             </div>
         </div>
     </div>
-
-    <script>
-        function showDeleteAccountOptions() {
-            document.getElementById("deleteAccountContainer").style.display = "block";
-        }
-
-        function cancelDelete() {
-            document.getElementById("deleteAccountContainer").style.display = "none";
-        }
-
-        function confirmDelete() {
-            let password = document.getElementById("deletePassword").value;
-            if (password) {
-                alert("Account deletion confirmed.");
-                // Here you can add your delete account logic.
-            } else {
-                alert("Please enter your password.");
-            }
-        }
-    </script>
 </body>
 </html>
